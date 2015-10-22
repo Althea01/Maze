@@ -3,6 +3,7 @@ Player player;
 void setup(){
   size(1000,600);
   player = new Player();
+  
 }
 
 void draw(){
@@ -91,6 +92,8 @@ void draw(){
 }
 
 void instruction(){
+  textAlign(LEFT, BOTTOM);
+  textSize(12);
   fill(255);
   text("Colored boxes mean that there is a path.",30,30);
   fill(125,233,193);
@@ -965,11 +968,17 @@ void level24(){
     rect(310+15*13,100+15*6,15,15);
     rect(310+15*22,100+15*18,15,15);
     rect(310+15*13,100+15*14,15,15);
-  println("level1");
+  
+  if((310+15*24<player.x && player.x<310+15*25) && (100+15*23<player.y && player.y<100+15*24)){
+    win();
+  }
 }
 
 void win(){
-  println("win");
+  textAlign(CENTER, CENTER);
+  fill(0);
+  textFont(createFont("myriad pro", 100, true));
+  text("You Win!!", width / 2, height / 2);
 }
 
 void keyPressed(){
